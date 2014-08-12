@@ -8,7 +8,7 @@ shareCount currently gathers shares from Facebook, Twitter, LinkedIn and Pintres
 usage
 =====
 
-For a working demo, see '''demo.py'''
+For a working demo, see ``demo.py``
 
 ```python
 import shareCount
