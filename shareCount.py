@@ -29,16 +29,15 @@ class shareCount:
 	def count(self, url):
 		self._totalShares = 0
 		self._shareData = {}
-
 		if url != '':
-			if self._multithread:
+			if self._multithread and __name__ == '__main__':
 				pool = multiprocessing.Pool(processes=4)
 			for curAPI in APIs:
-				if self._multithread:
+				if self._multithread and __name__ == '__main__':
 					pool.apply_async(getShares, (url, curAPI ), callback=self._collate)
 				else:
 					getShares(url, curAPI, callback=self._collate)
-			if self._multithread:
+			if self._multithread and __name__ == '__main__':
 				pool.close()
 				pool.join()
 		else:
@@ -60,3 +59,4 @@ def getShares(url, site, callback = None):
 	if callback != None:
 		callback(response)
 	return response
+	
